@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="full">
+    <form [formGroup]="updateForm">
+      <ion-item>
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input formControlName="usuario" type="text" readonly>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Fecha</ion-label>
+        <ion-input  formControlName="fecha" displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" readonly></ion-input>                
+      </ion-item>         
+      <ion-item  lines="full">
+        <ion-label position="floating">Servicio</ion-label>
+        <ion-input  formControlName="servicio"  readonly></ion-input>                          
+      </ion-item>      
+      <ion-item lines="full" [hidden]=true>
+        <ion-label position="floating">Responsable</ion-label>
+        <ion-input  formControlName="responsable"  readonly></ion-input>            
+      </ion-item>      
+      <ion-item lines="full">
+        <ion-label position="floating">Responsable</ion-label>
+        <ion-input  formControlName="responsableNombre"  readonly></ion-input>            
+      </ion-item>           
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="volver()" color="primary" shape="full" expand="block">Volver</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-list>
+</ion-content>

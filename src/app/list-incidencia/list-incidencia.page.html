@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Mis Incidencias</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="ios list-ios hydrated">
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="volver()" color="primary" shape="full" expand="block">Volver</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-list-header class="ios hydrated">
+      <h1>Incidencias</h1>
+    </ion-list-header>
+    <ion-item *ngFor="let reg of Incidencias; let i = index;" class="user-list">
+      <ion-label>
+        <h5>
+         {{reg.fecha}} 
+        </h5>        
+      </ion-label>
+      <div class="item-note" item-end>
+        <button ion-button clear (click)="pageViewIncidencia(reg.$key)" >
+          <ion-icon name="eye-outline" style="zoom:2.0"></ion-icon>
+       </button> 
+      </div>      
+      <div class="item-note" item-end>
+        <button ion-button clear (click)="pageDeleteIncidencia(reg.$key)" >
+          <ion-icon name="trash-outline" style="zoom:2.0"></ion-icon>
+       </button> 
+      </div>           
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="volver()" color="primary" shape="full" expand="block">Volver</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+</ion-content>

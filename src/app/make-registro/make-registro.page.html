@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registro Hoy</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>  
+  <ion-list lines="full">  
+    <form [formGroup]="registroForm" (ngSubmit)="formSubmit()">    
+      <ion-item>
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input formControlName="usuario" type="text" required readonly>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Fecha</ion-label>
+        <ion-input  formControlName="fecha" displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" required readonly></ion-input>                
+      </ion-item>         
+      <ion-item  lines="full">
+        <ion-label position="floating">Servicio</ion-label>
+        <ion-select formControlName="servicio" (ionChange)="cambioServicio($event)" required [value]="servicio">
+          <ion-select-option *ngFor="let srv of serviciosList; let i = index" [value]="srv.codigo" >
+            {{srv.codigo}}
+          </ion-select-option>
+        </ion-select>           
+      </ion-item>      
+      <ion-item lines="full">
+        <ion-label position="floating">Responsable</ion-label>
+        <ion-select formControlName="responsable" required  [value]="responsable">
+          <ion-select-option *ngFor="let res of responsablesList; let i = index" [value]="res.codigo">
+            {{res.nombre}}
+          </ion-select-option>
+        </ion-select>           
+      </ion-item>         
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="primary" shape="full" expand="block">Registrar</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="volver()" color="primary" shape="full" expand="block">Volver</ion-button>
+        </ion-col>
+      </ion-row>      
+    </form>    
+  </ion-list>
+
+</ion-content>

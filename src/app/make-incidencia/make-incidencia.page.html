@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registrar Incidencia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list lines="full">  
+    <form [formGroup]="incidenciaForm" (ngSubmit)="formSubmit()">    
+      <ion-item>
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input formControlName="usuario" type="text" required readonly>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Fecha</ion-label>
+        <ion-datetime formControlName="fecha" displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY" required doneText="Ok" cancelText="Cancelar"></ion-datetime>                
+      </ion-item>         
+      <ion-item  lines="full">
+        <ion-label position="floating">Tipo de incidencia</ion-label>
+        <ion-select formControlName="tipo" (ionChange)="cambioTipoIncidencia($event)" required [value]="tipo">
+          <ion-select-option value="enfermedad">Enfermedad</ion-select-option>
+          <ion-select-option value="fueradedia">Fuera de día</ion-select-option>
+          <ion-select-option value="otrosResp">Otros responsables</ion-select-option>
+          <ion-select-option value="otrosMot">Otros motivos</ion-select-option>
+        </ion-select>           
+      </ion-item>     
+      <ion-item>
+        <ion-label position="floating">Observaciones</ion-label>
+        <ion-textarea formControlName="observaciones"></ion-textarea>                
+      </ion-item>                
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="primary" shape="full" expand="block">Registrar</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="volver()" color="primary" shape="full" expand="block">Volver</ion-button>
+        </ion-col>
+      </ion-row>      
+    </form>    
+  </ion-list>
+</ion-content>

@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Menú</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content (loaded)="mensaje()">
+  <ion-segment>
+    <ion-segment-button (click)="pageRegistro()" color="primary">Registro</ion-segment-button>    
+  </ion-segment>  
+  <ion-segment>
+    <ion-segment-button (click)="pageIncidencia()" color="primary">Incidencia</ion-segment-button>    
+  </ion-segment>
+  <ion-segment>
+    <ion-segment-button (click)="pageMisRegistros()" color="primary">Mis Registros</ion-segment-button>    
+  </ion-segment>
+  <ion-segment>
+    <ion-segment-button (click)="pageMisIncidencias()" color="primary">Mis Incidencias</ion-segment-button>    
+  </ion-segment>  
+  <ion-segment>    
+    <ion-segment-button (click)="authService.SignOut()" color="primary">Salir</ion-segment-button>    
+  </ion-segment> 
+</ion-content>
